@@ -89,8 +89,7 @@ button:disabled {
 }
 
 .gallery__image {
-  width: 325px;
-  height: 224px;
+  width: 100%;
   border-radius: 12px;
   display: block;
 }
@@ -132,12 +131,13 @@ button:disabled {
 }
 
 .gallery__new-image-btn {
-  width: 325px;
-  height: 224px;
+  width: 100%;
+  min-height: 247.094px;
   border-radius: 12px;
   background-color: #d9d9d9;
   color: #1a1a1a80;
   font-size: 24px;
+  aspect-ratio: 3 / 2;
 }
 
 .gallery__new-image-btn:hover {
@@ -146,9 +146,10 @@ button:disabled {
 }
 
 .wrapping-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  justify-content: center;
   gap: 18px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(min(325px, 100%), 353px));
 }
 
 .wrapping-row__display-contents {
@@ -257,5 +258,26 @@ button:disabled {
   .carousel__title {
     font-size: 32px;
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .wrapping-row {
+    grid-template-columns: repeat(auto-fill, minmax(min(325px, 100%), 325px));
+  }
+  .gallery__new-image-btn {
+    min-height: 227.5px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .header__link {
+    font-size: 16px;
+  }
+  .header__title {
+    font-size: 16px;
+  }
+  .nav__links {
+    gap: 18px;
   }
 }
